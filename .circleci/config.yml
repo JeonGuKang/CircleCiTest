@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/RichUtilsKt
     docker:
-      - image: circleci/android:api-26-alpha
+      - image: circleci/android:api-28-node8-alpha
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -16,7 +16,7 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
           name: Download Dependencies
-          command: ./gradlew androidDependencies
+          command: ./gradlew build
       - save_cache:
           paths:
             - ~/.gradle
