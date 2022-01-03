@@ -1,10 +1,10 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
-version: 2.1
+version: 2
 jobs:
   build:
     working_directory: ~/RichUtilsKt
-    docker:
-      - image: circleci/android@2.0.0
+    docker: 
+      - image: circleci/android:api-30
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -28,4 +28,5 @@ jobs:
           name: Build debug APK and release APK
           command: |
             ./gradlew :app:build
+
     
