@@ -31,12 +31,13 @@ jobs:
           name: Build debug APK and release APK
           command: |
             ./gradlew :app:build
+
       - run:
           name: "Pushing git tag"
           command: |
             git config user.email "amper2421@naver.com"
             git config user.name "JeonGuKang"
-            git tag -a "test" -m "Updated master tag with version test"
+            git tag "test"
             git push -u origin circleci-project-setup
             echo "Updated master tag with version test"
       
