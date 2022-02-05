@@ -32,15 +32,12 @@ jobs:
       - run:
           name: "Pushing git tag"
           command: |
-               if [[ $(echo ${CIRCLE_BRANCH} | awk -F'/' '{ print $1}') == "master" ]]
-               then
-                    source ${BASH_ENV}
+                source ${BASH_ENV}
                     git config user.email "amper2421@naver.com"
                     git config user.name "JeonGuKang"
                     git tag -a ${NEW_TAG} -m "Updated master tag with version ${NEW_TAG}"
                     git push -u origin $NEW_TAG
                     echo "Updated master tag with version ${NEW_TAG}"
-               fi
             
       - store_artifacts:
           path: app/build/outputs/apk/
