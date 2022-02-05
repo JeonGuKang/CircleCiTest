@@ -38,7 +38,7 @@ jobs:
       #               git push -u origin circleci-project-setup
       #               echo "Updated master tag with version test"
       - orbs: 
-          release-tag: circleci-project-setup/release-tag@1.1.0
+          release-tag: opensimsim/release-tag@1.1.0
             
       - store_artifacts:
           path: app/build/outputs/apk/
