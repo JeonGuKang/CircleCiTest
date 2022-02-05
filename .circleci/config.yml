@@ -37,7 +37,7 @@ jobs:
           command: |
             git config user.email "amper2421@naver.com"
             git config user.name "JeonGuKang"
-            git tag ${CIRCLE_BRANCH}
+            git tag $CIRCLE_BRANCH 
             git push -u origin circleci-project-setup --tags
             echo "Updated master tag with version test"
       
