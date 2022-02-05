@@ -32,7 +32,6 @@ jobs:
       - run:
           name: "Pushing git tag"
           command: |
-                source ${BASH_ENV}
                     git config user.email "amper2421@naver.com"
                     git config user.name "JeonGuKang"
                     git tag -a ${NEW_TAG} -m "Updated master tag with version ${NEW_TAG}"
