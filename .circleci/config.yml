@@ -1,5 +1,5 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
-version: 2.1
+version: 2.0
 jobs:
   build:
     working_directory: ~/RichUtilsKt
@@ -10,8 +10,7 @@ jobs:
     
     steps:
       - checkout
-      - orbs: 
-          release-tag: opensimsim/release-tag@1.1.0
+    
       - run:
           name: chmod permissions
           command: chmod +x ./gradlew
@@ -32,14 +31,14 @@ jobs:
           name: Build debug APK and release APK
           command: |
             ./gradlew :app:build
-      # - run:
-      #     name: "Pushing git tag"
-      #     command: |
-      #               git config user.email "amper2421@naver.com"
-      #               git config user.name "JeonGuKang"
-      #               git tag -a "test" -m "Updated master tag with version test"
-      #               git push -u origin circleci-project-setup
-      #               echo "Updated master tag with version test"
+      - run:
+          name: "Pushing git tag"
+          command: |
+            git config user.email "amper2421@naver.com"
+            git config user.name "JeonGuKang"
+            git tag -a "test" -m "Updated master tag with version test"
+            git push -u origin circleci-project-setup
+            echo "Updated master tag with version test"
       
             
       - store_artifacts:
